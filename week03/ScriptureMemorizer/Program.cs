@@ -1,9 +1,32 @@
-using System;
+Reference reference =
+    new Reference("Proverbs", 3, 5, 6);
 
-class Program
+Scripture scripture =
+    new Scripture(
+        reference,
+        "Trust in the Lord with all thine heart and lean not unto thine own understanding");
+
+string input = "";
+
+while (input != "quit" &&
+       !scripture.IsCompletelyHidden())
 {
-    static void Main(string[] args)
+    Console.Clear();
+
+    Console.WriteLine(scripture.GetDisplayText());
+
+    Console.WriteLine();
+    Console.Write("Press Enter to continue or type quit: ");
+
+    input = Console.ReadLine();
+
+    if (input != "quit")
     {
-        Console.WriteLine("Hello World! This is the ScriptureMemorizer Project.");
+        scripture.HideRandomWords(3);
     }
 }
+
+Console.Clear();
+Console.WriteLine(scripture.GetDisplayText());
+Console.WriteLine();
+Console.WriteLine("Program ended.");
