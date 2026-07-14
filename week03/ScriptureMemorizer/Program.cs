@@ -1,3 +1,10 @@
+// Creativity:
+// This program was improved by ensuring that
+// only words that are not already hidden are
+// selected when hiding random words. This
+// prevents repeatedly selecting words that
+// have already been hidden.
+
 Reference reference =
     new Reference("Proverbs", 3, 5, 6);
 

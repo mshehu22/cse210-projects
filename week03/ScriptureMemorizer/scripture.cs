@@ -9,7 +9,6 @@ public class Scripture
     public Scripture(Reference reference, string text)
     {
         _reference = reference;
-
         _words = new List<Word>();
 
         string[] words = text.Split(" ");
@@ -38,12 +37,19 @@ public class Scripture
 
         for (int i = 0; i < numberToHide; i++)
         {
+            if (IsCompletelyHidden())
+            {
+                break;
+            }
+
             int index = random.Next(_words.Count);
 
-            if (!_words[index].IsHidden())
+            while (_words[index].IsHidden())
             {
-                _words[index].Hide();
+                index = random.Next(_words.Count);
             }
+
+            _words[index].Hide();
         }
     }
 
